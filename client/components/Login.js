@@ -27,36 +27,36 @@ function LoginScreen ({ navigation }) {
     }
   }
 
-  function receiveInfoandData (username) {
+  function receiveInfoandData(username) {
     ApiService.getUserInfo(username)
-    .then(data => {
-      let dispatchtoUser = {
-        id: data[0].id,
-        email: data[0].id,
-        username: data[0].username,
-        firstName: data[0].firstName,
-        lastName: data[0].lastName,
-        registrationDate: data[0].registrationDate,
-      }
-      for (let i of data[0].Data) {
-        i.date = Number(i.date)
-        let parseMoods = i.moods.replace(/[\[\]',"]+/g,'')
-        let arrayMoods;
-        if (parseMoods.length) arrayMoods = parseMoods.split(' ')
-        if (arrayMoods===undefined) arrayMoods = []
-        i.moods = arrayMoods
-        i.suggestions = eval(i.suggestions)
-      }
-      let dispatchtoHistoricalData = data[0].Data
-      dispatch({
-        type: 'UPDATE_USERINFO',
-        payload: dispatchtoUser
+      .then(data => {
+        let dispatchtoUser = {
+          id: data[0].id,
+          email: data[0].id,
+          username: data[0].username,
+          firstName: data[0].firstName,
+          lastName: data[0].lastName,
+          registrationDate: data[0].registrationDate,
+        }
+        for (let i of data[0].Data) {
+          i.date = Number(i.date)
+          let parseMoods = i.moods.replace(/[\[\]',"]+/g, '')
+          let arrayMoods;
+          if (parseMoods.length) arrayMoods = parseMoods.split(' ')
+          if (arrayMoods === undefined) arrayMoods = []
+          i.moods = arrayMoods
+          // i.suggestions = eval(i.suggestions)
+        }
+        let dispatchtoHistoricalData = data[0].Data
+        dispatch({
+          type: 'UPDATE_USERINFO',
+          payload: dispatchtoUser
+        })
+        dispatch({
+          type: 'CREATE_HISTORICALDATA',
+          payload: dispatchtoHistoricalData
+        })
       })
-      dispatch({
-        type: 'CREATE_HISTORICALDATA',
-        payload: dispatchtoHistoricalData
-      })
-    })
   }
 
   return (
