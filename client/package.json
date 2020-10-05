@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "@expo-google-fonts/montserrat": "^0.1.0",
@@ -17,10 +18,13 @@
     "@react-navigation/drawer": "^5.9.1",
     "@react-navigation/native": "^5.7.4",
     "@react-navigation/stack": "^5.9.1",
+    "@testing-library/react": "^11.0.4",
     "axios": "^0.20.0",
     "expo": "~39.0.2",
     "expo-font": "~8.3.0",
     "expo-status-bar": "~1.0.2",
+    "jest": "^26.4.2",
+    "jest-expo": "^39.0.0",
     "lodash": "^4.17.20",
     "luxon": "^1.25.0",
     "native-base": "^2.13.14",
@@ -45,5 +49,11 @@
   "devDependencies": {
     "@babel/core": "~7.9.0"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
+  }
 }
