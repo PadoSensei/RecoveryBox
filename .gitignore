@@ -4,6 +4,7 @@ server/node_modules
 client/.expo
 .expo/*
 npm-debug.*
+
 *.jks
 *.p8
 *.p12
