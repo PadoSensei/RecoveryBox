@@ -1,6 +1,7 @@
 node_modules/**/*
 .expo/*
 npm-debug.*
+
 *.jks
 *.p8
 *.p12
@@ -123,7 +124,3 @@ package-lock.json
 .vscode
 .vs
 
-# Android memory profiler files
-*.hprof
-client/node_modules
-client/.expo/web/cache/development/babel-loader/*.json
