@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity, Text, Image } from 'react-native';
 import { BoldAppText, MediumAppText } from '../styles/text'
-import {useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ApiService from '../ApiService'
 import colors from '../styles/colors'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 
 
-function LoginScreen ({ navigation }) {
+function LoginScreen({ navigation }) {
 
   // TODO: refactor to not have to useState for passwordInput and usernameInput?
   // TODO: add a warning if your user is not on the db and don't trigger the navigation 
@@ -15,7 +15,7 @@ function LoginScreen ({ navigation }) {
 
   const [usernameInput, onChangeUsername] = useState(useSelector((state) => state.user.username));
   const [passwordInput, onChangePassword] = useState(useSelector((state) => state.user.password));
-  const [warning, setWarning] = useState(false); 
+  const [warning, setWarning] = useState(false);
 
   const submitHandler = async () => {
     if (usernameInput && passwordInput) {
@@ -45,7 +45,7 @@ function LoginScreen ({ navigation }) {
           if (parseMoods.length) arrayMoods = parseMoods.split(' ')
           if (arrayMoods === undefined) arrayMoods = []
           i.moods = arrayMoods
-          // i.suggestions = eval(i.suggestions)
+          i.suggestions = eval(i.suggestions)
         }
         let dispatchtoHistoricalData = data[0].Data
         dispatch({
@@ -65,7 +65,7 @@ function LoginScreen ({ navigation }) {
       <View style={styles.inputView} >
         <TextInput
           placeholder='Enter a username'
-          value= {usernameInput ? usernameInput : ''}
+          value={usernameInput ? usernameInput : ''}
           onChangeText={text => onChangeUsername(text)}
           style={styles.inputText}
           placeholderTextColor={colors.platinum}
@@ -75,7 +75,7 @@ function LoginScreen ({ navigation }) {
       <View style={styles.inputView} >
         <TextInput
           placeholder='Enter a password'
-          value= {passwordInput ? passwordInput : ''}
+          value={passwordInput ? passwordInput : ''}
           secureTextEntry={true}
           style={styles.inputText}
           onChangeText={text => onChangePassword(text)}
@@ -85,11 +85,11 @@ function LoginScreen ({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => submitHandler()}>
         <Text style={styles.text}>LOGIN</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, {marginTop:7}]}>
+      <TouchableOpacity style={[styles.button, { marginTop: 7 }]}>
         <Text style={styles.text}>REGISTER</Text>
       </TouchableOpacity>
       <View>
-        { 
+        {
           warning ? <Text>Please submit both a username and password</Text> : null
         }
       </View>
@@ -104,34 +104,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.platinum,
   },
-  inputView:{
-    width:"80%",
+  inputView: {
+    width: "80%",
     backgroundColor: colors.blue,
-    borderRadius:25,
-    height:50,
-    marginBottom:20,
-    justifyContent:"center",
-    padding:20,
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: "center",
+    padding: 20,
   },
   logo: {
-    color: colors.orange, 
+    color: colors.orange,
     fontSize: 40,
     marginBottom: 60,
   },
   inputText: {
-    height:50,
-    color:'white',
+    height: 50,
+    color: 'white',
     textAlign: 'center',
   },
   button: {
-    width:"60%",
+    width: "60%",
     backgroundColor: colors.orange,
-    borderRadius:25,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:30,
-    marginBottom:10,
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+    marginBottom: 10,
   },
   text: {
     fontFamily: 'Montserrat_500Medium',

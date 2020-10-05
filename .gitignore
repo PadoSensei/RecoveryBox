@@ -1,7 +1,4 @@
 node_modules/**/*
-client/node_modules
-server/node_modules
-client/.expo
 .expo/*
 npm-debug.*
 
@@ -15,7 +12,6 @@ web-build/
 
 # macOS
 .DS_Store
-
 # Xcode
 !**/*.xcodeproj
 !**/*.pbxproj
@@ -38,6 +34,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+
 # Gradle
 /build/
 /packages/react-native-codegen/android/build/
@@ -51,6 +48,7 @@ project.xcworkspace
 /ReactAndroid/gradle/
 /ReactAndroid/gradlew
 /ReactAndroid/gradlew.bat
+
 # Buck
 .buckd
 buck-out
@@ -58,58 +56,71 @@ buck-out
 /.lsp-buck-out
 /ReactAndroid/src/main/jni/prebuilt/lib/
 /ReactAndroid/src/main/gen
+
 # Android Studio
 .project
 .settings
 .classpath
+
 # Watchman
 .watchmanconfig
+
 # Android
 .idea
 .gradle
 local.properties
 *.iml
 /android/
+
 # Node
 node_modules
 *.log
 .nvm
 /bots/node_modules/
 package-lock.json
+
 # OS X
 .DS_Store
 /ios/
+
 # Test generated files
 /ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
 *.js.meta
+
 /coverage
 /third-party
+
 # Root dir shouldn't have Xcode project
 /*.xcodeproj
+
 # ReactCommon subdir shouldn't have Xcode project
 /ReactCommon/**/*.xcodeproj
 /packages/rn-tester/build
 /packages/rn-tester/android/app/build/*
+
 # Libs that shouldn't have Xcode project
 /Libraries/FBLazyVector/**/*.xcodeproj
 /Libraries/FBReactNativeSpec/**/*.xcodeproj
 /Libraries/RCTRequired/**/*.xcodeproj
 /React/CoreModules/**/*.xcodeproj
 /packages/react-native-codegen/**/*.xcodeproj
+
 # CocoaPods
 /template/ios/Pods/
 /template/ios/Podfile.lock
 /packages/rn-tester/Gemfile.lock
+
 # Ignore RNTester specific Pods, but keep the __offline_mirrors__ here.
 /packages/rn-tester/Pods/*
 !/packages/rn-tester/Pods/__offline_mirrors__
+
 # react-native-codegen
 /packages/react-native-codegen/lib
 /ReactCommon/fabric/components/rncore/
 /schema-native-modules.json
 /schema-rncore.json
+
 # Visual studio
 .vscode
 .vs
-# Android memory profiler files
-*.hprof
+

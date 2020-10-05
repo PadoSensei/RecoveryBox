@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import {Calendar } from 'react-native-calendars'
+import { Calendar } from 'react-native-calendars'
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from '@react-navigation/native';
 import colors from '../styles/colors';
@@ -16,10 +16,10 @@ function CalendarDH() {
   const formattedDateData = dateData.map(date => DateTime.fromMillis(date).toFormat('yyyy-LL-dd'))
 
   let markedDatesObj = {};
-   
+
   formattedDateData.forEach((day) => {
     markedDatesObj = {
-      ...markedDatesObj, [day]:{
+      ...markedDatesObj, [day]: {
         dotColor: colors.green,
         marked: true
       }
@@ -45,14 +45,14 @@ function CalendarDH() {
         minDate={'2019-05-10'}
         maxDate={now}
         // Handler which gets executed on day press. Default = undefined
-        onDayPress={(day) => {pressHandler(day.timestamp)}}
+        onDayPress={(day) => { pressHandler(day.timestamp) }}
         monthFormat={'MMMM yyyy'}
-          hideArrows={false}
-          // Replace default arrows with custom ones (direction can be 'left' or 'right')
+        hideArrows={false}
+        // Replace default arrows with custom ones (direction can be 'left' or 'right')
         renderArrow={(direction) => {
-          if (direction==='right') return <Image style={styles.image} source={require('../assets/forward.png')}/>
-          if (direction==='left') return <Image style={styles.image} source={require('../assets/back.png')}/>
-          }}
+          if (direction === 'right') return <Image style={styles.image} source={require('../assets/forward.png')} />
+          if (direction === 'left') return <Image style={styles.image} source={require('../assets/back.png')} />
+        }}
         hideExtraDays={false}
         disableMonthChange={true}
         firstDay={1}
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 20,
-    width:20,
+    width: 20,
   },
 });
 

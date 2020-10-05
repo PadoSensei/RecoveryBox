@@ -5,6 +5,7 @@ const basename = path.basename(__filename);
 const db = {};
 
 const sequelize = new Sequelize('legacy', 'user', 'admin', { //REL reminder to change the table name
+
   host: 'localhost',
   dialect: 'postgres',
   logging: false,
