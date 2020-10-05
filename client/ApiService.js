@@ -2,7 +2,7 @@
 
 const BASE_URL = 'http://localhost:3001'
 
-function fetchRequest (path, options) {
+function fetchRequest(path, options) {
   return fetch(BASE_URL + path, options)
     .then(res => res.status < 400 ? res.json() : Promise.reject(res))
     .catch((err) => {
@@ -17,33 +17,33 @@ function fetchRequest (path, options) {
 //   });
 // }
 
-function getQuote () {
+function getQuote() {
   return fetchRequest('/apirequest')
 }
 
-function postDailyData (body) {
+function postDailyData(body) {
   return fetchRequest('/adddailydata', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   })
 }
 
-function getUserInfo (username) {
+function getUserInfo(username) {
   return fetchRequest(`/user/${username}`, {
     method: 'GET',
   })
 }
 
-function postHistoricalData (body) {
+function postHistoricalData(body) {
   return fetchRequest('/addhistoricaldata', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   })
 }
 
-function updateHistoricalData (body) {
+function updateHistoricalData(body) {
 
 }
 
